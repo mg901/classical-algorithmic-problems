@@ -54,6 +54,6 @@ describe("zeroOneKnapsack", () => {
     const values = [10, 20, 30];
 
     // Act & Assert
-    expect(zeroOneKnapsack(capacity, weights, values)).toBe(50);
+    expect(zeroOneKnapsack(capacity, weights, values)).toBe(60);
   });
 });
