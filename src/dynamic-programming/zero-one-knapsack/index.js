@@ -1,4 +1,4 @@
-export function unboundedKnapsack(capacity, weights, values) {
+export function zeroOneKnapsack(capacity, weights, values) {
   const n = weights.length;
   const dp = Array.from({ length: n + 1 }, () =>
     new Array(capacity + 1).fill(0)
@@ -11,7 +11,7 @@ export function unboundedKnapsack(capacity, weights, values) {
       if (w >= weights[i - 1]) {
         dp[i][w] = Math.max(
           dp[i][w],
-          dp[i][w - weights[i - 1]] + values[i - 1]
+          dp[i - 1][w - weights[i - 1]] + values[i - 1]
         );
       }
     }
