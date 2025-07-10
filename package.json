@@ -1,0 +1,16 @@
+{
+  "name": "classical-algorithmic-problems",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "test:unit": "pnpm vitest run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.10.0",
+  "devDependencies": {
+    "vitest": "^3.2.4"
+  }
+}
