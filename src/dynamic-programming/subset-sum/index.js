@@ -8,24 +8,14 @@ export function dfs(index, sum) {
 
 // Bottom-up
 export function subsetSum(nums, target) {
-  const n = nums.length;
+  const dp = new Array(target + 1).fill(false);
+  dp[0] = true;
 
-  const dp = Array.from({ length: n + 1 }, () =>
-    new Array(target + 1).fill(false)
-  );
-
-  for (let i = 0; i <= n; i += 1) {
-    dp[i][0] = true;
-  }
-
-  for (let i = 1; i <= n; i += 1) {
-    for (let sum = 1; sum <= target; sum += 1) {
-      const take = sum >= nums[i - 1] ? dp[i - 1][sum - nums[i - 1]] : false;
-      const skip = dp[i - 1][sum];
-
-      dp[i][sum] = take || skip;
+  for (const num of nums) {
+    for (let sum = target; sum >= num; sum -= 1) {
+      dp[sum] ||= dp[sum - num];
     }
   }
 
-  return dp[n][target];
+  return dp[target];
 }
