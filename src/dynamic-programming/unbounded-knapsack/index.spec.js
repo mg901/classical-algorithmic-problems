@@ -5,8 +5,8 @@ describe("unboundedKnapsack", () => {
   it("basic test case", () => {
     // Arrange
     const capacity = 8;
-    const weights = [2, 3, 4];
     const values = [40, 50, 60];
+    const weights = [2, 3, 4];
 
     // Act & Assert
     expect(unboundedKnapsack(capacity, weights, values)).toBe(160);
@@ -14,12 +14,12 @@ describe("unboundedKnapsack", () => {
 
   it("zero capacity returns 0", () => {
     // Arrange
-    const W = 0;
-    const weights = [1, 2, 3];
+    const capacity = 0;
     const values = [10, 20, 30];
+    const weights = [1, 2, 3];
 
     // Act & Assert
-    expect(unboundedKnapsack(W, weights, values)).toBe(0);
+    expect(unboundedKnapsack(capacity, weights, values)).toBe(0);
   });
 
   it("empty weights and values return 0", () => {
@@ -29,21 +29,21 @@ describe("unboundedKnapsack", () => {
 
   it("all items too heavy", () => {
     // Arrange
-    const W = 5;
-    const weights = [6, 7, 8];
+    const capacity = 5;
     const values = [10, 20, 30];
+    const weights = [6, 7, 8];
 
     // Act & Assert
-    expect(unboundedKnapsack(W, weights, values)).toBe(0);
+    expect(unboundedKnapsack(capacity, weights, values)).toBe(0);
   });
 
   it("single item used multiple times", () => {
     // Arrange
-    const W = 10;
-    const weights = [2];
+    const capacity = 10;
     const values = [5];
+    const weights = [2];
 
     // Act & Assert
-    expect(unboundedKnapsack(W, weights, values)).toBe(25); // 5 items of weight 2
+    expect(unboundedKnapsack(capacity, weights, values)).toBe(25); // 5 items of weight 2
   });
 });

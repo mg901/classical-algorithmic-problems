@@ -5,8 +5,8 @@ describe("zeroOneKnapsack", () => {
   it("basic test case", () => {
     // Arrange
     const capacity = 8;
-    const weights = [2, 3, 4];
     const values = [40, 50, 60];
+    const weights = [2, 3, 4];
 
     // Act & Assert
     expect(zeroOneKnapsack(capacity, weights, values)).toBe(110);
@@ -15,8 +15,8 @@ describe("zeroOneKnapsack", () => {
   it("zero capacity returns 0", () => {
     // Arrange
     const capacity = 0;
-    const weights = [1, 2, 3];
     const values = [10, 20, 30];
+    const weights = [1, 2, 3];
 
     // Act & Assert
     expect(zeroOneKnapsack(capacity, weights, values)).toBe(0);
@@ -30,8 +30,8 @@ describe("zeroOneKnapsack", () => {
   it("all items too heavy", () => {
     // Arrange
     const capacity = 5;
-    const weights = [6, 7, 8];
     const values = [10, 20, 30];
+    const weights = [6, 7, 8];
 
     // Act & Assert
     expect(zeroOneKnapsack(capacity, weights, values)).toBe(0);
@@ -40,8 +40,8 @@ describe("zeroOneKnapsack", () => {
   it("single item used once", () => {
     // Arrange
     const capacity = 2;
-    const weights = [2];
     const values = [5];
+    const weights = [2];
 
     // Act & Assert
     expect(zeroOneKnapsack(capacity, weights, values)).toBe(5);
@@ -50,8 +50,8 @@ describe("zeroOneKnapsack", () => {
   it("items with same weight but different values", () => {
     // Arrange
     const capacity = 5;
-    const weights = [1, 1, 1];
     const values = [10, 20, 30];
+    const weights = [1, 1, 1];
 
     // Act & Assert
     expect(zeroOneKnapsack(capacity, weights, values)).toBe(60);
