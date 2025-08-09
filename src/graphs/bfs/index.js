@@ -12,7 +12,9 @@ export default function breadthFirstSearch(graph, source) {
     visited.add(vertex);
     result.push(vertex);
 
-    for (const neighbor of graph[vertex]) {
+    const neighbors =  graph[vertex] ?? []
+
+    for (const neighbor of neighbors) {
       if (visited.has(neighbor)) continue;
       queue.push(neighbor);
     }
