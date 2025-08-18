@@ -5,8 +5,8 @@ describe("unboundedKnapsack", () => {
   it("basic test case", () => {
     // Arrange
     const capacity = 8;
-    const values = [40, 50, 60];
     const weights = [2, 3, 4];
+    const values = [40, 50, 60];
 
     // Act & Assert
     expect(unboundedKnapsack(capacity, weights, values)).toBe(160);
@@ -15,8 +15,8 @@ describe("unboundedKnapsack", () => {
   it("zero capacity returns 0", () => {
     // Arrange
     const capacity = 0;
-    const values = [10, 20, 30];
     const weights = [1, 2, 3];
+    const values = [10, 20, 30];
 
     // Act & Assert
     expect(unboundedKnapsack(capacity, weights, values)).toBe(0);
@@ -30,8 +30,8 @@ describe("unboundedKnapsack", () => {
   it("all items too heavy", () => {
     // Arrange
     const capacity = 5;
-    const values = [10, 20, 30];
     const weights = [6, 7, 8];
+    const values = [10, 20, 30];
 
     // Act & Assert
     expect(unboundedKnapsack(capacity, weights, values)).toBe(0);
@@ -40,8 +40,8 @@ describe("unboundedKnapsack", () => {
   it("single item used multiple times", () => {
     // Arrange
     const capacity = 10;
-    const values = [5];
     const weights = [2];
+    const values = [5];
 
     // Act & Assert
     expect(unboundedKnapsack(capacity, weights, values)).toBe(25); // 5 items of weight 2
