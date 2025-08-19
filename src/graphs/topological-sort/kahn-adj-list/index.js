@@ -1,3 +1,5 @@
+// Explanation: https://www.youtube.com/watch?v=cIBFEhD77b4
+
 export function topologicalSort(graph) {
   const nodes = Object.keys(graph);
   const nodeMetadataMap = new Map();

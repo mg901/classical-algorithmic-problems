@@ -1,3 +1,5 @@
+// Explanation: // Explanation: https://www.youtube.com/watch?v=cIBFEhD77b4
+
 export function topologicalSort(matrix) {
   const n = matrix.length;
   const inDegree = new Uint8Array(n);

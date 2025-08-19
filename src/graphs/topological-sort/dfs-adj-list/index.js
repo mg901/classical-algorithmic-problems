@@ -1,18 +1,21 @@
+// Explanation: https://www.youtube.com/watch?v=7J3GadLzydI&list=PLjvveANJO04NSN0e7plJH_OspfTnhVXx3&index=39
+
 export function topologicalSort(graph) {
+  const nodes = Object.keys(graph);
   const visited = new Set();
   const visiting = new Set();
   const result = [];
 
-  for (const node of Object.keys(graph)) {
-    if (!visited.has(node)) {
-      if (!dfs(node)) return [];
+  for (const node of nodes) {
+    if (dfs(node) === false) {
+      return [];
     }
   }
 
   return result.reverse();
 
-  function dfs(start) {
-    const stack = [[start, 0]];
+  function dfs(node) {
+    const stack = [[node, 0]];
 
     while (stack.length) {
       const [u, state] = stack.pop();
@@ -24,7 +27,7 @@ export function topologicalSort(graph) {
         visiting.add(u);
         stack.push([u, 1]);
 
-        for (let v of graph[u] ?? []) {
+        for (const v of graph[u] ?? []) {
           if (!visited.has(v)) {
             stack.push([v, 0]);
           }
@@ -35,6 +38,7 @@ export function topologicalSort(graph) {
         result.push(u);
       }
     }
+
     return true;
   }
 }

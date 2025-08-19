@@ -1,3 +1,5 @@
+// Explanation: https://www.youtube.com/watch?v=7J3GadLzydI&list=PLjvveANJO04NSN0e7plJH_OspfTnhVXx3&index=39
+
 export function topologicalSort(matrix) {
   const n = matrix.length;
   const visited = new Set();
