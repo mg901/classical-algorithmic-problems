@@ -20,25 +20,26 @@ export function depthFirstSearch(graph, source) {
 }
 
 export function depthFirstSearchIterative(graph, source) {
-  if (!graph || Object.keys(graph).length === 0) return [];
+  if (!graph || !Object.keys(graph).length) return [];
 
-  const visited = new Set();
   const stack = [source];
+  const visited = new Set();
   const result = [];
 
   while (stack.length) {
-    const vertex = stack.pop();
-    if (visited.has(vertex)) continue;
+    const node = stack.pop();
+    if (visited.has(node)) continue;
 
-    visited.add(vertex);
-    result.push(vertex);
+    visited.add(node);
+    result.push(node);
 
-    const neighbors = (graph[vertex] ?? []).toReversed();
+    const neighbors = graph[node] ?? [];
+    for (let i = neighbors.length - 1; i >= 0; i -= 1) {
+      const neighbor = neighbors[i];
 
-    for (const neighbor of neighbors) {
-      if (visited.has(neighbor)) continue;
-
-      stack.push(neighbor);
+      if (visited.has(neighbor)) {
+        stack.push(neighbor);
+      }
     }
   }
 
