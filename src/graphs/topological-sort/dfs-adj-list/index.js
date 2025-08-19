@@ -7,9 +7,7 @@ export function topologicalSort(graph) {
   const result = [];
 
   for (const node of nodes) {
-    if (dfs(node) === false) {
-      return [];
-    }
+    if (dfs(node) === false) return [];
   }
 
   return result.reverse();

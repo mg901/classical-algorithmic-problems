@@ -7,15 +7,13 @@ export function topologicalSort(matrix) {
   const result = [];
 
   for (let u = 0; u < n; u += 1) {
-    if (!visited.has(u)) {
-      if (!dfs(u)) return [];
-    }
+    if (dfs(u) === false) return [];
   }
 
   return result.reverse();
 
-  function dfs(start) {
-    const stack = [[start, 0]];
+  function dfs(node) {
+    const stack = [[node, 0]];
 
     while (stack.length) {
       const [u, state] = stack.pop();
@@ -38,6 +36,7 @@ export function topologicalSort(matrix) {
         result.push(u);
       }
     }
+
     return true;
   }
 }
