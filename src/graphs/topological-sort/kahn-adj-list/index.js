@@ -4,16 +4,16 @@ export function topologicalSort(graph) {
   const queue = [];
   const result = [];
 
-  for (const node of nodes) {
-    nodeMetadataMap.set(node, {
+  for (const u of nodes) {
+    nodeMetadataMap.set(u, {
       in: 0,
-      out: new Set(graph[node]),
+      out: new Set(graph[u]),
     });
   }
 
-  for (const node of nodes) {
-    for (const neighbor of graph[node]) {
-      nodeMetadataMap.get(neighbor).in += 1;
+  for (const u of nodes) {
+    for (const v of graph[u]) {
+      nodeMetadataMap.get(v).in += 1;
     }
   }
 
@@ -24,14 +24,14 @@ export function topologicalSort(graph) {
   }
 
   while (queue.length) {
-    const node = queue.shift();
-    result.push(node);
+    const u = queue.shift();
+    result.push(u);
 
-    for (const neighbor of graph[node]) {
-      nodeMetadataMap.get(neighbor).in -= 1;
+    for (const v of graph[u]) {
+      nodeMetadataMap.get(v).in -= 1;
 
-      if (nodeMetadataMap.get(neighbor).in === 0) {
-        queue.push(neighbor);
+      if (nodeMetadataMap.get(v).in === 0) {
+        queue.push(v);
       }
     }
   }
