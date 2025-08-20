@@ -6,10 +6,10 @@ export function topologicalSort(graph) {
   const queue = [];
   const result = [];
 
-  for (const u of nodes) {
-    nodeMetadataMap.set(u, {
+  for (const node of nodes) {
+    nodeMetadataMap.set(node, {
       in: 0,
-      out: new Set(graph[u]),
+      out: new Set(graph[node]),
     });
   }
 
@@ -19,9 +19,9 @@ export function topologicalSort(graph) {
     }
   }
 
-  for (const [node, metadata] of nodeMetadataMap) {
+  for (const [u, metadata] of uMetadataMap) {
     if (metadata.in === 0) {
-      queue.push(node);
+      queue.push(u);
     }
   }
 
