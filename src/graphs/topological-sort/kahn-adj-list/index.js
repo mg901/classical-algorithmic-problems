@@ -39,3 +39,4 @@ export function topologicalSort(graph) {
   }
 
   return result.length === nodes.length ? result : [];
+}
