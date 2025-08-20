@@ -14,7 +14,7 @@ export function topologicalSort(graph) {
   }
 
   for (const u of nodes) {
-    for (const v of graph[u]) {
+    for (const v of graph[u] ?? []) {
       nodeMetadataMap.get(v).in += 1;
     }
   }
@@ -29,7 +29,7 @@ export function topologicalSort(graph) {
     const u = queue.shift();
     result.push(u);
 
-    for (const v of graph[u]) {
+    for (const v of graph[u] ?? []) {
       nodeMetadataMap.get(v).in -= 1;
 
       if (nodeMetadataMap.get(v).in === 0) {
@@ -38,5 +38,5 @@ export function topologicalSort(graph) {
     }
   }
 
-  return nodes.length === result.length ? result : [];
+  return result.length === nodes.length ? result : [];
 }
