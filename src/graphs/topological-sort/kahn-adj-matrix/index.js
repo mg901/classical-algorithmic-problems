@@ -35,5 +35,5 @@ export function topologicalSort(matrix) {
     }
   }
 
-  return n === result.length ? result : [];
+  return result.length === n ? result : [];
 }
