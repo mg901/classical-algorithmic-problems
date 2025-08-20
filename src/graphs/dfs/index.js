@@ -1,5 +1,5 @@
 export function depthFirstSearch(graph, source) {
-  if (!graph || Object.keys(graph).length === 0) return [];
+  if (!graph || !Object.keys(graph).length) return [];
 
   const visited = new Set();
   const result = [];
