@@ -22,12 +22,14 @@ export function topologicalSort(matrix) {
         if (visited.has(u)) continue;
         if (visiting.has(u)) return false;
 
-        visiting.add(u);
         stack.push([u, 1]);
+        visiting.add(u);
 
         for (let v = 0; v < n; v += 1) {
-          if (matrix[u][v] && !visited.has(v)) {
-            stack.push([v, 0]);
+          if (matrix[u][v] === 1) {
+            if (!visited.has(u)) {
+              stack.push([v, 0]);
+            }
           }
         }
       } else {

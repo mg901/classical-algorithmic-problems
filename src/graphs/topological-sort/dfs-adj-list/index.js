@@ -22,10 +22,10 @@ export function topologicalSort(graph) {
         if (visited.has(u)) continue;
         if (visiting.has(u)) return false;
 
-        visiting.add(u);
         stack.push([u, 1]);
+        visiting.add(u);
 
-        for (const v of graph[u] ?? []) {
+        for (const v of graph[u]) {
           if (!visited.has(v)) {
             stack.push([v, 0]);
           }
