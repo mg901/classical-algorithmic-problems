@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      lodash.isfunction:
+        specifier: ^3.0.9
+        version: 3.0.9
     devDependencies:
       husky:
         specifier: ^9.1.7
@@ -378,6 +382,9 @@ packages:
 
   js-tokens@9.0.1:
     resolution: {integrity: sha512-mxa9E9ITFOt0ban3j6L5MpjwegGz6lBQmM1IJkWeBZGcMxto50+eWdjC/52xDbS2vy0k7vIMK0Fe2wfL9OQSpQ==}
+
+  lodash.isfunction@3.0.9:
+    resolution: {integrity: sha512-AirXNj15uRIMMPihnkInB4i3NHeb4iBtNg9WRWuK2o31S+ePwwNmDPaTL3o7dTJ+VXNZim7rFs4rxN4YU1oUJw==}
 
   loupe@3.1.4:
     resolution: {integrity: sha512-wJzkKwJrheKtknCOKNEtDK4iqg/MxmZheEMtSTYvnzRdEYaZzmgH976nenp8WdJRdx5Vc1X/9MO0Oszl6ezeXg==}
@@ -791,6 +798,8 @@ snapshots:
   husky@9.1.7: {}
 
   js-tokens@9.0.1: {}
+
+  lodash.isfunction@3.0.9: {}
 
   loupe@3.1.4: {}
 
