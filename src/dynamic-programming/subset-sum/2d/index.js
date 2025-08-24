@@ -1,5 +1,8 @@
 // Sub-pattern:
-// - Unbounded Knapsack
+// - 1/0 Knapsack
+
+// LeetCode:
+// - https://leetcode.com/problems/partition-equal-subset-sum/description/
 
 export function subsetSum(nums, target) {
   const n = nums.length;
@@ -8,10 +11,9 @@ export function subsetSum(nums, target) {
 
   for (let i = 1; i <= n; i += 1) {
     for (let sum = 0; sum <= target; sum += 1) {
-      const num = nums[i - 1];
-
       dp[i][sum] = dp[i - 1][sum];
 
+      const num = nums[i - 1];
       if (sum >= num) {
         dp[i][sum] ||= dp[i - 1][sum - num];
       }
