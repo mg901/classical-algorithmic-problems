@@ -25,7 +25,7 @@ export function topologicalSort(graph) {
         stack.push([u, 1]);
         visiting.add(u);
 
-        for (const v of graph[u]) {
+        for (const v of graph[u] ?? []) {
           if (!visited.has(v)) {
             stack.push([v, 0]);
           }
