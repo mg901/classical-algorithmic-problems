@@ -1,0 +1,42 @@
+```js
+function topologicalSort(graph) {
+  const nodes = Object.keys(graph);
+  const visited = new Set();
+  const visiting = new Set();
+  const result = [];
+
+  for (const node of nodes) {
+    if (dfs(node) === false) return [];
+  }
+
+  return result.reverse();
+
+  function dfs(node) {
+    const stack = [[node, 0]];
+
+    while (stack.length) {
+      const [u, state] = stack.pop();
+
+      if (state === 0) {
+        if (visited.has(u)) continue;
+        if (visiting.has(u)) return false;
+
+        stack.push([u, 1]);
+        visiting.add(u);
+
+        for (const v of graph[u] ?? []) {
+          if (!visited.has(v)) {
+            stack.push([v, 0]);
+          }
+        }
+      } else {
+        visiting.delete(u);
+        visited.add(u);
+        result.push(u);
+      }
+    }
+
+    return true;
+  }
+}
+```
