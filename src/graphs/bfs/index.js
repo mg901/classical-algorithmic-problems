@@ -6,15 +6,15 @@ export default function breadthFirstSearch(graph, source) {
   const result = [];
 
   while (queue.length) {
-    const vertex = queue.shift();
-    if (visited.has(vertex)) continue;
+    const u = queue.shift();
+    if (visited.has(u)) continue;
 
-    visited.add(vertex);
-    result.push(vertex);
+    visited.add(u);
+    result.push(u);
 
-    for (const neighbor of graph[vertex] ?? []) {
-      if (!visited.has(neighbor)) {
-        queue.push(neighbor);
+    for (const v of graph[u] ?? []) {
+      if (!visited.has(v)) {
+        queue.push(v);
       }
     }
   }

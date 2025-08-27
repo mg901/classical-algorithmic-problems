@@ -3,19 +3,23 @@ import { topologicalSort } from './index.js';
 
 describe('topologicalSort', () => {
   test('empty graph', () => {
+    // Act & Assert
     expect(topologicalSort({})).toEqual([]);
   });
 
   test('graphs with one node', () => {
+    // Act & Assert
     expect(topologicalSort({ A: [] })).toEqual(['A']);
   });
 
   test('graphs with two nodes', () => {
+    // Act & Assert
     expect(topologicalSort({ A: ['B'], B: [] })).toEqual(['A', 'B']);
     expect(topologicalSort({ A: [], B: ['A'] })).toEqual(['B', 'A']);
   });
 
   test('graphs with multiple nodes', () => {
+    // Act & Assert
     expect(topologicalSort({ A: ['B', 'C'], B: ['C'], C: [] })).toEqual([
       'A',
       'B',
@@ -53,6 +57,7 @@ describe('topologicalSort', () => {
   });
 
   test('linked list', () => {
+    // Act & Assert
     expect(topologicalSort({ A: ['B'], B: ['C'], C: [] })).toEqual([
       'A',
       'B',
@@ -71,6 +76,7 @@ describe('topologicalSort', () => {
   });
 
   test('graph with cycles', () => {
+    // Act & Assert
     expect(topologicalSort({ A: ['A'] })).toEqual([]);
     expect(topologicalSort({ A: ['A', 'B'], B: [] })).toEqual([]);
     expect(topologicalSort({ A: ['A', 'B'], B: ['A'] })).toEqual([]);
