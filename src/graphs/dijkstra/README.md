@@ -1,7 +1,7 @@
 ```js
 import { MinPriorityQueue } from '@datastructures-js/priority-queue';
 
-export function dijkstra(n, edges, start) {
+function dijkstra(n, edges, start) {
   const graph = createGraph(n + 1, edges);
   const dist = new Array(n + 1).fill(Infinity);
   dist[start] = 0;
