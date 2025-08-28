@@ -13,7 +13,7 @@ export function dijkstra(n, edges, start) {
     if (distance > dist[u]) continue;
 
     for (const [v, w] of graph[u]) {
-      if (dist[u] + w < dist[v]) {
+      if (distance + w < dist[v]) {
         dist[v] = dist[u] + w;
 
         minpq.enqueue([v, dist[v]]);
