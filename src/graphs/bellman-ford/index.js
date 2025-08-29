@@ -12,7 +12,7 @@ export function bellmanFord(vertices, edges, start) {
 
   for (let [u, v, w] of edges) {
     if (dist[u] !== Infinity && dist[u] + w < dist[v]) {
-      throw new Error('Graph contains negative weight cycle');
+      throw new Error('Negative weight cycle detected.');
     }
   }
 
