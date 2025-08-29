@@ -48,7 +48,7 @@ describe('Bellman-Ford algorithm', () => {
 
     // Act & Assert
     expect(() => bellmanFord(vertices, edges, 0)).toThrow(
-      'Graph contains negative weight cycle',
+      'Negative weight cycle detected.',
     );
   });
 });
