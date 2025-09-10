@@ -21,7 +21,7 @@ function prim(graph) {
     visited[u] = 1;
 
     for (let v = 0; v < n; v += 1) {
-      if (graph[u][v] && !visited[v] && graph[u][v] < key[v]) {
+      if (!visited[v] && graph[u][v] && graph[u][v] < key[v]) {
         key[v] = graph[u][v];
         parent[v] = u;
       }

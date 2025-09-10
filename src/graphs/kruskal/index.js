@@ -28,24 +28,27 @@ class DisjointSet {
       this.#parent[rootY] = rootX;
     } else {
       this.#parent[rootY] = rootX;
-      this.#rank[rootX] += 1;
+      this.#rank += 1;
     }
 
     return true;
   }
 }
 
+// Explanation:
+// - Abdul Bari: https://youtu.be/4ZlRH0eK-qQ?si=zqtaneX9DVkaR3Gx&t=693
+
 export function kruskal(n, edges) {
   edges.sort((a, b) => a[2] - b[2]);
 
-  let ds = new DisjointSet(n);
-  let mst = [];
+  const ds = new DisjointSet(n);
+  const mst = [];
   let totalWeight = 0;
 
-  for (let [u, v, w] of edges) {
+  for (const [u, v, w] of edges) {
     if (ds.union(u, v)) {
-      mst.push([u, v, w]);
       totalWeight += w;
+      mst.push([u, v, w]);
     }
   }
 
