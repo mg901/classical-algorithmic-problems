@@ -1,10 +1,12 @@
 export function subsetSum(nums, target) {
-  return dfs(0, target);
+  const n = nums.length;
+
+  return dfs(0, 0);
 
   function dfs(index, sum) {
-    if (sum === 0) return true;
-    if (index === nums.length || sum < 0) return false;
+    if (sum === target) return true;
+    if (index === n || sum > target) return false;
 
-    return dfs(index + 1, sum - nums[index]) || dfs(index + 1, sum);
+    return dfs(index + 1, sum + nums[index]) || dfs(index + 1, sum);
   }
 }

@@ -1,6 +1,6 @@
-// Explanation: https://youtu.be/M4XKbq_FasA?si=9Cr5FtPnmpaL3scn
+// Explanation: https://youtu.be/cJ21moQpofY?si=La_TqVG6Cu0IffyP
 
-export function unboundedKnapsack(capacity, weights, values) {
+export function zeroOneKnapsack(capacity, weights, values) {
   const n = weights.length;
 
   return dfs(0, capacity);
@@ -12,7 +12,7 @@ export function unboundedKnapsack(capacity, weights, values) {
     const weight = weights[i];
 
     if (w >= weight) {
-      take = dfs(i, w - weight) + values[i];
+      take = dfs(i + 1, w - weight) + values[i];
     }
 
     return Math.max(take, dfs(i + 1, w));
