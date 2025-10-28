@@ -10,10 +10,12 @@ export function floydWarshall(graph) {
     Array.from({ length: n }, (__, j) => graph[i][j]),
   );
 
-  for (let k = 0; k < n; k += 1) {
-    for (let i = 0; i < n; i += 1) {
-      for (let j = 0; j < n; j += 1) {
-        dist[i][j] = Math.min(dist[i][j], dist[i][k] + dist[k][j]);
+  for (let mid = 0; mid < n; mid += 1) {
+    for (let u = 0; u < n; u += 1) {
+      for (let v = 0; v < n; v += 1) {
+        if (dist[u][mid] !== Infinity && dist[mid][v] !== Infinity) {
+          dist[u][v] = Math.min(dist[u][v], dist[u][mid] + dist[mid][v]);
+        }
       }
     }
   }

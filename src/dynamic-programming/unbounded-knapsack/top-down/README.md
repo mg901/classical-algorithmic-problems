@@ -4,17 +4,17 @@ function unboundedKnapsack(capacity, weights, values) {
 
   return dfs(0, capacity);
 
-  function dfs(i, w) {
-    if (i === n || w === 0) return 0;
+  function dfs(i, rest) {
+    if (i === n || rest === 0) return 0;
 
     let take = 0;
     const weight = weights[i];
 
-    if (w >= weight) {
-      take = dfs(i, w - weight) + values[i];
+    if (rest >= weight) {
+      take = dfs(i, rest - weight) + values[i];
     }
 
-    return Math.max(take, dfs(i + 1, w));
+    return Math.max(take, dfs(i + 1, rest));
   }
 }
 
@@ -24,15 +24,15 @@ function unboundedKnapsack(capacity, weights, values) {
 
   return dfs(capacity);
 
-  function dfs(w) {
-    if (w === 0) return 0;
+  function dfs(rest) {
+    if (rest === 0) return 0;
 
     let best = 0;
     for (let i = 0; i < n; i += 1) {
       const weight = weights[i];
 
-      if (w >= weight) {
-        best = Math.max(best, dfs(w - weight) + values[i]);
+      if (rest >= weight) {
+        best = Math.max(best, dfs(rest - weight) + values[i]);
       }
     }
 
